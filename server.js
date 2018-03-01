@@ -1,6 +1,5 @@
 const fetch =  require("node-fetch");
 
-
 //Requires
 const express = require('express');
 const app = express();
@@ -16,7 +15,7 @@ app.get('/', (req, res, next) => res.sendFile(path.join(__dirname, 'index.html')
 app.get('/api/playbyplay/:gameId', (req, res) => {
   let results;
   console.log('hitting backend');
-  fetch.fetch(`http://stats.nba.com/stats/playbyplayv2/?GameID=${req.params.gameId}&StartPeriod=1&EndPeriod=14`,
+  fetch(`http://stats.nba.com/stats/playbyplayv2/?GameID=${req.params.gameId}&StartPeriod=1&EndPeriod=14`,
     {
       headers:
         {
@@ -54,7 +53,7 @@ app.get('/api/games/:date', (req, res) => {
   let results;
 
 
-  fetch.fetch(`http://data.nba.net/10s/prod/v1/2018${req.params.date}/scoreboard.json`)
+  fetch(`http://data.nba.net/10s/prod/v1/2018${req.params.date}/scoreboard.json`)
     .then(function(response) {
 
         return response.text();
