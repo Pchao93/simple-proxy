@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+import "isomorphic-fetch";
 
 //Static Routes
 app.use('/dist', express.static(path.join(__dirname, 'dist')));
